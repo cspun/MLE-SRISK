@@ -25,8 +25,6 @@ tf.set_random_seed(0)
 np.random.seed(0)
 
 
-
-#os.chdir(r'C:\Users\Administrator\Google 云端硬盘\SRISKwork\Comparison\Multi-level Regression')
 os.chdir(r'H:\Google Drive\SRISKwork\Comparison\US Two-step regression')
 
 market_raw = pd.read_csv('US Company Features.csv')
@@ -48,7 +46,7 @@ def cal_VaR(start_date_dt):
     h=5
     beforeYears=3
     n_steps = 5 # the length of X data 
-    n_inputs = 7   # the number of variables: 宏观数据sum6.csv文件中的C到I列的7个变量
+    n_inputs = 7   # the number of variables
     n_neurons = 5
     n_outputs = 1
     learning_rate = 0.001
@@ -58,7 +56,6 @@ def cal_VaR(start_date_dt):
     back_date = (start_date_dt-relativedelta(years=beforeYears,months=0,days=0)).strftime('%Y-%m-%d')
     start_date=start_date_dt.strftime('%Y-%m-%d')
     macro_hist_t = market_raw[back_date:start_date]
-    # calculate 未来一周的sp500
 #    ret_sp = macro_hist_t[['Date','sp500']]
 #    ret_sp.index = pd.to_datetime(ret_sp.Date)
 #    #weekret = pd.rolling_apply(1+ret_sp.sp500, 5, lambda x: np.prod(x)) - 1
